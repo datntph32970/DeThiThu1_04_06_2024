@@ -47,7 +47,7 @@ namespace AppView.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var result = response.Content.ReadAsStringAsync().Result;
-                return Ok(result);
+                return RedirectToAction("Index");
             }
             return BadRequest();
         }
