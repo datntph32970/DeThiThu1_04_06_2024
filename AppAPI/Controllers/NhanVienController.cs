@@ -19,6 +19,25 @@ namespace AppAPI.Controllers
             double bmi = canNang / (chieuCao * chieuCao);
             return bmi;
         }
+        [HttpPost("TimSoLonThuHai")]
+        public int TimSoLonThuHai(int[] arr)
+        {
+            int max1 = int.MinValue;
+            int max2 = int.MinValue;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > max1)
+                {
+                    max2 = max1;
+                    max1 = arr[i];
+                }
+                else if (arr[i] > max2 && arr[i] < max1)
+                {
+                    max2 = arr[i];
+                }
+            }
+            return max2;
+        }
         [HttpGet("GetAll")]
         public List<NhanVien> GetAll()
         {
@@ -53,4 +72,5 @@ namespace AppAPI.Controllers
         }
 
     }
+
 }

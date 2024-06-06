@@ -16,8 +16,10 @@ namespace AppData.Models
         [Range(18, 50, ErrorMessage = "Độ tuổi phải từ 18 đến 50")]
         public int tuoi { get; set; }
         public int role { get; set; }
-        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Định dạng email không hợp lệ")]
+        //[RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Định dạng email không hợp lệ")]
+        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string Email { get; set; }
+        [Range(5000000, 30000000, ErrorMessage = "Lương phải từ 5.000.000 đến 30.000.000")]
         public int luong { get; set; }
         public bool trangThai { get; set; }
     }
